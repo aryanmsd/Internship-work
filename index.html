@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="styling.css" />
+  <script src="https://kit.fontawesome.com/42fdadd2c0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h1 id="title">Sign Up</h1>
+      <div class="underline"></div>
+      <form id="authForm">
+        <div class="input-group">
+          <div class="input-field" id="nameField">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="UserName" required />
+          </div>
+          <div class="input-field">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="input-field">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
+          <p id="lostPassword">Lost Password <a href="#">Click Here</a></p>
+        </div>
+
+        <div class="btn-field">
+          <button type="button" id="signupBtn">SIGN UP</button>
+          <button type="button" id="signinBtn" class="disable">SIGN IN</button>
+        </div>
+        <button type="submit" style="display: none;"></button>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

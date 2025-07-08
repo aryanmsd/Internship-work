@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Task Manager</h1>
+            <div class="user-info">
+                <span>Welcome, User!</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="content-grid">
+                <div class="add-task-section">
+                    <h2 class="section-title">Add New Task</h2>
+                    
+                    <form id="taskForm">
+                        <div class="form-group">
+                            <label for="taskTitle">Task Title</label>
+                            <input type="text" id="taskTitle" placeholder="Enter task title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskDueDate">Due Date</label>
+                            <input type="date" id="taskDueDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskPriority">Priority</label>
+                            <select id="taskPriority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="hasDeadline" onchange="toggleDeadlineTime()">
+                                Set specific deadline time?
+                            </label>
+                        </div>
+
+                        <div class="form-group deadline-time-group" id="deadlineTimeGroup" style="display: none;">
+                            <label for="deadlineTime">Deadline Time</label>
+                            <input type="time" id="deadlineTime">
+                            <small class="help-text">We'll notify you 30 minutes before this time</small>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="pdf-upload-section">
+                            <div class="form-group">
+                                <label for="pdfFile">Or Upload PDF with Tasks</label>
+                                <div class="file-upload-area" id="fileUploadArea">
+                                    <div class="file-upload-icon">📄</div>
+                                    <div class="file-upload-text">Click to upload or drag PDF here</div>
+                                    <div class="file-upload-hint">PDF files only (max 10MB)</div>
+                                    <input type="file" id="pdfFile" accept=".pdf" style="display: none;">
+                                </div>
+                                <div class="file-info" id="fileInfo">
+                                    <div class="file-name" id="fileName"></div>
+                                    <div class="file-size" id="fileSize"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="add-btn" id="addTaskBtn">Add Task</button>
+                    </form>
+                </div>
+
+                <div class="tasks-section">
+                    <h2 class="section-title">My Tasks</h2>
+                    <div class="tasks-list" id="tasksList">
+                        <div class="no-tasks">No tasks found</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="processing-overlay" id="processingOverlay">
+        <div class="processing-content">
+            <div class="spinner"></div>
+            <h3>Processing PDF...</h3>
+            <p>Extracting tasks from your document</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="todo.js"></script>
+</body>
+</html>
